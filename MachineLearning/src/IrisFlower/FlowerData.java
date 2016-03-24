@@ -48,8 +48,8 @@ public class FlowerData implements Instance{
 	
 	@Override
 	public String toString(){
-		return "sepalLength: " + sepalLength + ";sepalWidth: " + sepalWidth + ";petalLength: " + petalLength
-				+ ";petalWidth: " + petalWidth + ";species: " + species;
+		return "sepalLength: " + sepalLength + "; sepalWidth: " + sepalWidth + "; petalLength: " + petalLength
+				+ "; petalWidth: " + petalWidth + "; species: " + species;
 	}
 	
 

@@ -12,7 +12,6 @@ import java.util.TreeSet;
 
 public class DenseInstance implements Instance {
 
-    /* Holds values */
     private double[] attributes;
 
     public DenseInstance(double[] att) {
@@ -24,7 +23,6 @@ public class DenseInstance implements Instance {
         this.attributes = att.clone();
     }
 
-    /* Hide argumentless constructor */
     private DenseInstance() {
     }
 
@@ -35,6 +33,30 @@ public class DenseInstance implements Instance {
     @Override
     public double value(int pos) {
         return attributes[pos];
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final DenseInstance other = (DenseInstance) obj;
+        if (!Arrays.equals(attributes, other.attributes))
+            return false;
+        return true;
+    }
+    
+    @Override
+    public int noAttributes() {
+        return attributes.length;
+    }
+    
+    @Override
+    public String toString() {
+        return "{" + Arrays.toString(attributes) + ";" + classValue() + "}";
     }
 
     @Override
@@ -127,16 +149,6 @@ public class DenseInstance implements Instance {
     }
 
     @Override
-    public int noAttributes() {
-        return attributes.length;
-    }
-
-    @Override
-    public String toString() {
-        return "{" + Arrays.toString(attributes) + ";" + classValue() + "}";
-    }
-
-    @Override
     public void removeAttribute(int i) {
         double[] tmp = attributes.clone();
         attributes = new double[tmp.length - 1];
@@ -151,20 +163,6 @@ public class DenseInstance implements Instance {
         int result = 1;
         result = prime * result + Arrays.hashCode(attributes);
         return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        final DenseInstance other = (DenseInstance) obj;
-        if (!Arrays.equals(attributes, other.attributes))
-            return false;
-        return true;
     }
 
     @Override

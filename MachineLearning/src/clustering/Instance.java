@@ -5,18 +5,22 @@ import java.util.Set;
 import java.util.SortedSet;
 
 public interface Instance extends Map<Integer, Double>, Iterable<Double>{
+	
+	public double value(int pos);
+	
+	public int noAttributes();
+	
+	public String toString();
+	
+	public boolean equals(Object obj);
     
     public Object classValue();
 
     public void setClassValue(Object value);
 
-    public int noAttributes();
-
     @Override
     @Deprecated
     public int size();
-
-    public double value(int pos);
 
     public Instance minus(Instance min);
 
@@ -45,9 +49,6 @@ public interface Instance extends Map<Integer, Double>, Iterable<Double>{
 
     public Instance copy();
 
-
     public void removeAttributes(Set<Integer> indices);
-    
-    public String toString();
 
 }

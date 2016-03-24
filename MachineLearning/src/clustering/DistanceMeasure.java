@@ -1,8 +1,6 @@
 package clustering;
 
-import java.io.Serializable;
-
-public interface DistanceMeasure extends Serializable {
+public interface DistanceMeasure{
 	
 	public double calculateDistance(Instance x, Instance y);
 
